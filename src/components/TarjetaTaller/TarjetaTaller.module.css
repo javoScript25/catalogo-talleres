@@ -71,3 +71,20 @@
   margin-top: 1rem;
   color: var(--texto-suave);
 }
+
+.horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+}
+
+.horizontal .barra {
+  flex: 1 1 180px;
+  margin-bottom: 0;
+}
+
+.horizontal .descripcion {
+  flex-basis: 100%;
+  margin-top: 0;
+}

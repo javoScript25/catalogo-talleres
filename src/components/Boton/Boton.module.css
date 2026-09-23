@@ -1,0 +1,32 @@
+.boton {
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--primario);
+  cursor: pointer;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.boton:hover {
+  opacity: 0.85;
+}
+
+/* accesibilidad: foco visible con el teclado */
+.boton:focus-visible {
+  outline: 3px solid var(--alerta);
+  outline-offset: 2px;
+}
+
+.primario {
+  background-color: var(--primario);
+  color: var(--superficie);
+}
+
+.secundario {
+  background-color: transparent;
+  color: var(--primario);
+}
+
+.activo {
+  box-shadow: 0 0 0 3px var(--primario);
+}

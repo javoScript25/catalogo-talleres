@@ -1,7 +1,8 @@
 import { useState } from "react";
+import Boton from "../Boton/Boton";
 import estilos from "./TarjetaTaller.module.css";
 
-export default function TarjetaTaller({ taller }) {
+export default function TarjetaTaller({ taller, horizontal = false }) {
   const { titulo, categoria, cupo, inscriptos, nuevo, descripcion } = taller;
   const [expandida, setExpandida] = useState(false);
 
@@ -18,13 +19,13 @@ export default function TarjetaTaller({ taller }) {
     estilos.tarjeta,
     estilos[estado],
     expandida ? estilos.expandida : "",
+    horizontal ? estilos.horizontal : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <article className={clases}>
-      {/* elemento condicional: si no es nuevo, no se renderiza nada */}
       {nuevo && <span className={estilos.etiqueta}>Nuevo</span>}
 
       <h2>{titulo}</h2>
@@ -36,7 +37,6 @@ export default function TarjetaTaller({ taller }) {
           : `Cupos libres: ${libres} de ${cupo}`}
       </p>
 
-      {/* unico style permitido en todo el proyecto: valor calculado */}
       <div className={estilos.barra}>
         <div
           className={estilos.relleno}
@@ -44,9 +44,14 @@ export default function TarjetaTaller({ taller }) {
         />
       </div>
 
-      <button onClick={() => setExpandida(!expandida)}>
+      <Boton
+        variante="secundario"
+        activo={expandida}
+        aria-expanded={expandida}
+        onClick={() => setExpandida(!expandida)}
+      >
         {expandida ? "Ocultar detalles" : "Ver detalles"}
-      </button>
+      </Boton>
 
       {expandida && <p className={estilos.descripcion}>{descripcion}</p>}
     </article>
