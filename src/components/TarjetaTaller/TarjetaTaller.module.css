@@ -1,0 +1,73 @@
+.tarjeta {
+  position: relative;
+  background-color: var(--superficie);
+  color: var(--texto);
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px var(--sombra);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.categoria {
+  color: var(--texto-suave);
+}
+
+/* estados según los cupos */
+.disponible {
+  border-left: 6px solid var(--exito);
+}
+
+.pocos {
+  border: 2px solid var(--alerta);
+}
+
+.completo {
+  opacity: 0.55;
+}
+
+/* etiqueta "nuevo" */
+.etiqueta {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--primario);
+  color: var(--superficie);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+/* barra de ocupación (el ancho lo pone el style en línea) */
+.barra {
+  height: 8px;
+  background-color: var(--borde);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.relleno {
+  height: 100%;
+  background-color: var(--primario);
+}
+
+.pocos .relleno {
+  background-color: var(--alerta);
+}
+
+.completo .relleno {
+  background-color: var(--peligro);
+}
+
+/* estado expandido: cambia sombra y borde */
+.expandida {
+  border-color: var(--primario);
+  box-shadow: 0 8px 24px var(--sombra);
+}
+
+.descripcion {
+  margin-top: 1rem;
+  color: var(--texto-suave);
+}
